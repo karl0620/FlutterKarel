@@ -17,8 +17,11 @@ class Pertemuan3 extends StatefulWidget {
 }
 
 class _Pertemuan3State extends State<Pertemuan3> {
-  String nama= "";
-
+  final _formKey = GlobalKey<FormState>();
+  @override
+  void initState(){
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -94,6 +97,16 @@ class _Pertemuan3State extends State<Pertemuan3> {
             ]
           ),
         ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            const Text(
+              'Dshboard',
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

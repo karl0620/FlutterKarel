@@ -1,3 +1,4 @@
+import 'package:demo_flutter/pertemuan3.dart';
 import 'package:flutter/material.dart';
 import 'package:demo_flutter/pertemuan2.dart';
 import 'package:flutter/material.dart';
@@ -20,8 +21,8 @@ class _Pertemuan1State extends State<Pertemuan1> {
   }
 
   void navigateLogin() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    int isLogin = prefs.getInt("is_login");
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    int? isLogin = pref.getInt("is_login");
     if(isLogin == 1){
       Navigator.pushReplacement(
         context,
@@ -76,6 +77,23 @@ class _Pertemuan1State extends State<Pertemuan1> {
               color: Colors.deepPurpleAccent,
               child: Text(
                 "Login",
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            RaisedButton(
+              onPressed: () async {
+                SharedPreferences prefs = await SharedPreferences.getInstance();
+                await prefs.setInt("is_login", 1);
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => Pertemuan3(title: "Card View",)),
+                );
+              },
+              color: Colors.deepPurpleAccent,
+              child: Text(
+                "Card View",
                 style: TextStyle(
                   color: Colors.white,
                 ),

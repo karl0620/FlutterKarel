@@ -38,11 +38,10 @@ class _Pertemuan2State extends State<Pertemuan2> {
             ),
             RaisedButton(
               onPressed: () async {
-                SharedPreferences prefs = await SharedPreferences.getInstance();
-                await prefs.setInt("is_login", 0);
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => Pertemuan1(title: "Halo Karel",)),
+                SharedPreferences pref = await SharedPreferences.getInstance();
+                await pref.setInt("is_login", 0);
+                Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) =>Pertemuan1(title: "Halo Push",)),
                 );
               },
               color: Colors.deepPurpleAccent,
@@ -53,23 +52,7 @@ class _Pertemuan2State extends State<Pertemuan2> {
                 ),
               ),
             ),
-            RaisedButton(
-              onPressed: () async {
-                SharedPreferences prefs = await SharedPreferences.getInstance();
-                await prefs.setInt("is_login", 2);
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => Pertemuan3(title: "Card View Karel",)),
-                );
-              },
-              color: Colors.deepPurpleAccent,
-              child: Text(
-                "Card View",
-                style: TextStyle(
-                  color: Colors.white,
-                ),
-              ),
-            ),
+
           ],
           ),
         ),

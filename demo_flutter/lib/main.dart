@@ -1,5 +1,8 @@
+import 'package:demo_flutter/pertemuan2.dart';
+import 'package:demo_flutter/pertemuan3.dart';
 import 'package:flutter/material.dart';
 import 'package:demo_flutter/pertemuan1.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
       ),
-      home: const MyHomePage(title: 'Flutter Demo'),
+      home: const Pertemuan1(title: 'Demo Flutter'),
     );
   }
 }
@@ -58,15 +61,21 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => Pertemuan1(title: "Halo Push",)),
-          );
-        },
-        tooltip: 'Login Page',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+        onPressed: () async {
+          SharedPreferences pref = await SharedPreferences.getInstance();
+          int? isLogin = pref.getInt("is_login");
+          if (isLogin == 1) {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => Pertemuan3(title: "Card View",)),
+            );
+          };
+          tooltip:
+          'Login Page';
+          child:
+          const Icon(Icons.add);
+        }), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

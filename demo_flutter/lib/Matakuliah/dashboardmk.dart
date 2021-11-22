@@ -13,6 +13,7 @@ class DashboardMK extends StatefulWidget {
 }
 
 class _DashboardMKState extends State<DashboardMK> {
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(

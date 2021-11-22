@@ -13,6 +13,8 @@ class DashboardMahasiswa extends StatefulWidget {
 }
 
 class _DashboardMahasiswaState extends State<DashboardMahasiswa> {
+  final _formKey = GlobalKey<FormState>();
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -31,7 +33,7 @@ class _DashboardMahasiswaState extends State<DashboardMahasiswa> {
               mainAxisSize: MainAxisSize.min,
               children: <Widget> [
                 ListTile(
-                  leading: Icon(Icons.book),
+                  leading: Icon(Icons.people),
                   title: Text("Henrikus Karel Dwiputra"),
                   subtitle: Text("72190327"),
                 )

@@ -13,6 +13,7 @@ class DashboardDosen extends StatefulWidget {
 }
 
 class _DashboardDosenState extends State<DashboardDosen> {
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +33,7 @@ class _DashboardDosenState extends State<DashboardDosen> {
               mainAxisSize: MainAxisSize.min,
               children: <Widget> [
                 ListTile(
-                  leading: Icon(Icons.book),
+                  leading: Icon(Icons.people),
                   title: Text("Argo Wibowo"),
                   subtitle: Text("argo@staff.ukdw.ac.id"),
                 )
